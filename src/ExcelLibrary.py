@@ -215,6 +215,18 @@ class ExcelLibrary(object):
         sheet_name = str(sheet_name)
         return workbook[sheet_name]
 
+    def create_sheet(self, sheet_name: str = None) -> Worksheet:
+        """Creates new sheet n excel document.\n
+        *Args:*\n
+            _sheet_name_: sheet name.\n
+        *Returns:*\n
+            Document's sheet.\n
+        """
+        workbook = self._get_current_workbook()
+        if sheet_name is not None:
+            sheet_name = str(sheet_name)
+        return workbook.create_sheet(sheet_name)
+
     def read_excel_cell(self, row_num: int, col_num: int, sheet_name: str = None) -> Any:
         """Returns content of a cell.\n
         *Args:*\n
